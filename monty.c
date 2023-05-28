@@ -1,7 +1,7 @@
-#define  _GNU_SOURCE
 #include "monty.h"
 #include <stdlib.h>
 #include <stdio.h>
+#define  _GNU_SOURCE
 
 bus_t bus = {NULL, NULL, NULL, 0};
 /**
@@ -10,14 +10,15 @@ bus_t bus = {NULL, NULL, NULL, 0};
  * @argv: monty file location
  * Return: 0 on success
  */
+
 int main(int argc, char *argv[])
 {
-	char *content;
 	FILE *file;
 	size_t size = 0;
 	ssize_t read_line = 1;
 	stack_t *stack = NULL;
-	unsigned int counter = 0;
+	unsigned int count = 0;
+	char *content;
 
 	if (argc != 2)
 	{
@@ -26,6 +27,7 @@ int main(int argc, char *argv[])
 	}
 	file = fopen(argv[1], "r");
 	bus.file = file;
+
 	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
@@ -34,12 +36,12 @@ int main(int argc, char *argv[])
 	while (read_line > 0)
 	{
 		content = NULL;
-		read_line = getline(&content, &size, file);
+		read_line = _getline(&content, &size, file);
 		bus.content = content;
-		counter++;
+		count++;
 		if (read_line > 0)
 		{
-			execute(content, &stack, counter, file);
+			execute(content, &stack, count, file);
 		}
 		free(content);
 	}

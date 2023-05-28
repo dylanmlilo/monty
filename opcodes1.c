@@ -6,7 +6,7 @@
  * @head: top of the stack
  * @counter: line number
  *
- * Return: dono return
+ * Return: does not return
  */
 
 void op_push(stack_t **head, unsigned int counter)
@@ -78,7 +78,8 @@ void op_pall(stack_t **head, unsigned int counter)
  *
  * Return: does not return
  */
-void f_pint(stack_t **head, unsigned int counter)
+
+void op_pint(stack_t **head, unsigned int counter)
 {
 	if (*head == NULL)
 	{
@@ -96,9 +97,11 @@ void f_pint(stack_t **head, unsigned int counter)
  *
  * @head: top of the stack
  * @counter: the line number
+ *
  * Return: does not return
  */
-void f_pop(stack_t **head, unsigned int counter)
+
+void op_pop(stack_t **head, unsigned int counter)
 {
 	stack_t *top;
 
